@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 2022_05_26_171457) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.text "comment"
-    t.bigint "movies_id", null: false
+    t.bigint "movie_id", null: false
+    t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["movies_id"], name: "index_bookmarks_on_movies_id"
+    t.index ["list_id"], name: "index_bookmarks_on_list_id"
+    t.index ["movie_id"], name: "index_bookmarks_on_movie_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -38,5 +40,6 @@ ActiveRecord::Schema.define(version: 2022_05_26_171457) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bookmarks", "movies", column: "movies_id"
+  add_foreign_key "bookmarks", "lists"
+  add_foreign_key "bookmarks", "movies"
 end
