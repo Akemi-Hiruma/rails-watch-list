@@ -1,7 +1,23 @@
-<h1>Lists</h1>
-<ul>
-  <%= link_to "Create list", new_list_path %>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="container-list">
+    <style type="text/css">
+      /* default styles here for older browsers.
+        I tend to go for a 600px - 960px width max but using percentages
+      */
+      @media only screen and (min-width: 960px) {
+          /* styles for browsers larger than 960px; */
+      }
+      @media only screen and (min-width: 1440px) {
+          /* styles for browsers larger than 1440px; */
+      }
+
+    </style>
+    <h1>Lists</h1>
+    <ul>
+      <%= link_to "Create list", new_list_path %>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.name, list_path(list) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
